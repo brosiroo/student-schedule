@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>جدولي الدراسي</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">▦</div>
+      <div>
+        <h1>جدولي الدراسي</h1>
+        <p>خطط لوقتك.. وحقق أهدافك</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="themeBtn" class="icon-btn" title="تبديل المظهر">☾</button>
+      <button id="clearBtn" class="icon-btn" title="مسح كل المواد">↺</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="toolbar">
+      <div class="week-title">
+        <button id="prevWeek" class="nav-btn">‹</button>
+        <div>
+          <strong id="weekLabel">الجدول الأسبوعي</strong>
+          <span id="weekRange"></span>
+        </div>
+        <button id="nextWeek" class="nav-btn">›</button>
+      </div>
+      <div class="toolbar-actions">
+        <button id="printBtn" class="secondary-btn">🖨 طباعة</button>
+        <button id="pdfBtn" class="secondary-btn">📄 تصدير PDF</button>
+        <button id="imageBtn" class="secondary-btn">🖼 تصدير صورة</button>
+        <button id="exportBtn" class="primary-btn">⇩ تصدير الجدول</button>
+        <label class="secondary-btn file-btn">⇧ استيراد
+          <input id="importInput" type="file" accept=".json" hidden />
+        </label>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="schedule-panel">
+        <div id="schedule" class="schedule"></div>
+
+        <div class="bottom-grid">
+          <div id="statusCard" class="status-card"></div>
+          <div class="stats-card">
+            <h3>إحصائيات سريعة</h3>
+            <div class="stats">
+              <div><b id="statSubjects">0</b><span>مواد</span></div>
+              <div><b id="statHours">0</b><span>ساعات أسبوعية</span></div>
+              <div><b id="statDays">0</b><span>أيام دراسية</span></div>
+              <div><b id="statFree">5</b><span>أيام فارغة</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="card">
+          <div class="card-title">➕ إضافة مادة جديدة</div>
+          <form id="courseForm">
+            <input type="hidden" id="courseId" />
+            <label>اسم المادة
+              <input id="courseName" required maxlength="60" placeholder="مثال: أمن شبكات" />
+            </label>
+
+            <div class="two-cols">
+              <label>وقت البداية
+                <input id="startTime" type="time" required value="09:00" />
+              </label>
+              <label>وقت النهاية
+                <input id="endTime" type="time" required value="10:00" />
+              </label>
+            </div>
+
+            <label>الأيام</label>
+            <div class="days" id="dayPicker"></div>
+
+            <label>لون المادة</label>
+            <div class="colors" id="colorPicker"></div>
+
+            <div id="formError" class="form-error"></div>
+            <div class="form-actions">
+              <button type="button" id="cancelEdit" class="secondary-btn hidden">إلغاء التعديل</button>
+              <button class="primary-btn grow" type="submit" id="saveBtn">حفظ المادة</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📚 المواد الحالية <span id="courseCount">0</span></div>
+          <div id="courseList" class="course-list"></div>
+          <div id="emptyList" class="empty">لا توجد مواد بعد. أضف أول مادة من الأعلى.</div>
+        </div>
+
+        <div class="card feature-card">
+          <div class="card-title">✦ مميزات الموقع</div>
+          <ul>
+            <li>إضافة وتعديل وحذف المواد بسهولة</li>
+            <li>اختيار أكثر من يوم للمادة</li>
+            <li>كشف التعارضات تلقائياً</li>
+            <li>حفظ تلقائي داخل المتصفح</li>
+            <li>دعم RTL والموبايل</li>
+            <li>تصدير JSON / PDF / صورة</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
