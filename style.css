@@ -111,4 +111,299 @@ body.light .topbar,body.light .schedule-panel,body.light .card,body.light .stats
 body.light .slot{background:#f8fbff}.light .time-cell{background:#f1f5fa}
 @media print {
   body{background:white;color:#111}.topbar,.toolbar-actions,.sidebar,.bottom-grid{display:none!important}.page{padding:0}.schedule-panel{box-shadow:none;border:1px solid #bbb}.schedule-grid{min-width:0}.cell{border-color:#bbb}.header-cell,.time-cell{background:#eee;color:#111}
+  /* =========================
+   TABLET
+   ========================= */
+@media (max-width: 1050px) {
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-card {
+    grid-column: 1 / -1;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .toolbar-actions {
+    width: 100%;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 700px) {
+
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .topbar {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .brand p {
+    display: none;
+  }
+
+  .top-actions {
+    gap: 5px;
+  }
+
+  .icon-btn,
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .page {
+    width: 100%;
+    padding: 12px;
+  }
+
+
+  /* Toolbar */
+
+  .toolbar {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .week-title {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .week-title > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .week-title strong {
+    font-size: 14px;
+  }
+
+  .week-title span {
+    font-size: 10px;
+  }
+
+
+  /* Toolbar buttons */
+
+  .toolbar-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 7px;
+  }
+
+  .toolbar-actions > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+
+  /* Main layout */
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .schedule-panel {
+    width: 100%;
+  }
+
+
+  /* Timetable */
+
+  .schedule {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule-grid {
+    min-width: 760px;
+  }
+
+
+  /* Sidebar */
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    padding: 14px;
+  }
+
+
+  /* Form */
+
+  .two-cols {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  input[type=text],
+  input[type=time],
+  input:not([type]) {
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .days {
+    gap: 5px;
+  }
+
+  .day-chip {
+    min-width: 40px;
+  }
+
+  .day-chip span {
+    padding: 10px 4px;
+  }
+
+  .form-actions {
+    width: 100%;
+  }
+
+  .form-actions button {
+    min-height: 44px;
+  }
+
+
+  /* Course list */
+
+  .course-list {
+    max-height: none;
+  }
+
+  .course-item {
+    grid-template-columns: 7px 1fr auto;
+    padding: 9px;
+  }
+
+  .course-info strong {
+    font-size: 12px;
+  }
+
+  .course-info small {
+    font-size: 10px;
+  }
+
+
+  /* Bottom cards */
+
+  .bottom-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .status-card {
+    padding: 14px;
+  }
+
+
+  /* Statistics */
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats div {
+    padding: 9px 4px;
+  }
+
+  .stats b {
+    font-size: 17px;
+  }
+
+
+  /* Toast */
+
+  .toast {
+    width: calc(100% - 30px);
+    text-align: center;
+    bottom: 15px;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+   ========================= */
+@media (max-width: 400px) {
+
+  .page {
+    padding: 8px;
+  }
+
+  .topbar {
+    padding: 0 9px;
+  }
+
+  .brand h1 {
+    font-size: 16px;
+  }
+
+  .toolbar-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .week-title strong {
+    font-size: 13px;
+  }
+
+  .week-title span {
+    font-size: 9px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}
 }
